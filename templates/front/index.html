@@ -1,0 +1,38 @@
+{% extends "front/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Top News Area Start ##### -->
+    <div class="top-news-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                <!-- Single News Area -->
+                <div class="col-12 col-sm-12 col-lg-12">
+                    <div class="single-blog-post style-2 mb-5">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail"  style="width: 1200px;" >
+                            <a href="#"  style="width: 1000px;" ><img style="height: 700px;"src="{{post.banner_img.url}}" alt=""></a>
+                        </div>
+
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <span class="post-date">{{post.date}}</span>
+                            <a href="#" class="post-title">{{post.title}}</a>
+                            <a href="#" class="post-author">By {{post.author}}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-12">
+                    <div class="load-more-button text-center">
+                        <a href="" class="btn newsbox-btn">Load More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Top News Area End ##### -->
+
+{% endblock %}

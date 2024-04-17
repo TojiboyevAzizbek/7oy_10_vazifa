@@ -1,0 +1,85 @@
+{% extends "front/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- Post Details Title Area Start -->
+    <div class="post-details-title-area bg-overlay clearfix" style="background-image: url({% static 'front/img/back.jpg' %})">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <p class="tag" ><span >The latest news</span></p>
+                        <p class="post-title">You can find the latest news in our</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Post Details Title Area End -->
+
+    <!-- Post Details Area Start -->
+    <section class="post-news-area section-padding-100-0 mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Post Details Content Area -->
+                <div class="col-12 col-lg-8">
+
+                    <!-- Comment Area Start -->
+                    <div class="comment_area clearfix mb-100">
+                        <h4 class="mb-50">Comments</h4>
+
+                        <ol>
+                            {% for comment in comments %}
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="{% static 'front/img/bg-img/1.jpg' %}" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <div class="d-flex">
+                                            <a href="#" class="post-date">{{comment.date}}</a>
+                                            <a href="#" class="reply">{{comment.post}}</a>
+                                        </div>
+                                        <p>{{comment.text}}.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Sidebar Widget -->
+                <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                    <div class="sidebar-area">
+
+                        <!-- Latest News Widget -->
+                        <div class="single-widget-area news-widget mb-30">
+                            <h4>Latest News</h4>
+                            {% for post in posts %}
+                            <!-- Single News Area -->
+                            <div class="single-blog-post d-flex style-4 mb-30">
+                                <!-- Blog Thumbnail -->
+                                <div class="blog-thumbnail">
+                                    <a href="#"><img src="{{post.banner_img.url}}" alt=""></a>
+                                </div>
+
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">{{post.date}}</span>
+                                    <a href="#" class="post-title">{{post.title}}</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Post Details Area End ##### -->
+{% endblock %}
